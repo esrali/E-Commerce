@@ -1,0 +1,11 @@
+<section>
+  <div class=" row g-5 mb-5 mt-1" >
+    <div class="col-md-4 col-sm-6" *ngFor="let oneCat of allCat">
+      <div class="rounded-2 border border-1 border-secondary-subtle  cat" role="button" (click)="getDetails(oneCat._id)">
+        <img [src]="oneCat.image" [alt]="oneCat.name"  height="300px" class="w-100 rounded-2">
+        <h1 class="text-main h4 fw-bold text-center p-3">{{oneCat.name}}</h1>
+      </div>
+
+    </div>
+  </div>
+</section>

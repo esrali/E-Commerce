@@ -1,0 +1,37 @@
+<section class="w-lg-75 mx-auto my-2 p-3 rounded-2 bg-main-light" *ngIf="cartDetails;else msg">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="text-center">Shop Cart</h1>
+    <button (click)="clearAll()" class="btn btn-sm btn-outline-danger">Clear All</button>
+  </div>
+  <h4 class="text-main fw-bold text-center my-3 h3">Total Price :{{cartDetails.totalCartPrice}}</h4>
+  <div class="row align-items-center" *ngFor="let item of cartDetails.products">
+    <div class="col-md-2 border-bottom pb-2">
+      <img [src]="item.product.imageCover" class="w-100">
+    </div>
+    <div class="col-md-10 ">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h2 class="h4">{{item.product.title}}</h2>
+          <p class="text-main m-0 fw-bold h4 mb-2">Price : {{item.price}}</p>
+          <div>
+            <i class="fas fa-star rating-color"></i>
+            <span class="text-muted">{{item.product.ratingsAverage}}</span>
+          </div>
+          <button class="btn p-0 m-0 text-danger fs-5" (click)="removeSpacificCart(item.product._id)"><i class="fa-solid fa-trash-can"></i> Remove</button>
+        </div>
+        <div>
+          <button (click)="changeCount(item.product._id,item.count+1)" class="btn border border-success"><i class="fa-solid fa-plus"></i></button>
+          <span class="px-3">{{item.count}}</span>
+          <button (click)="changeCount(item.product._id,item.count-1)" class="btn border border-success"><i class="fa-solid fa-minus"></i></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <button [routerLink]="['/checkout',cartDetails._id]" class="btn bg-main text-white d-block mx-auto">Online Payment <img src="./assets/images/Visa-Logo-2006-2014.png" class="img-fluid " width="30px"></button>
+</section>
+
+<ng-template #msg>
+  <h1 class="text-main text-center fw-bold my-5 py-5" >your cart is empty</h1>
+</ng-template>
+

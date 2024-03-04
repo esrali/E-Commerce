@@ -1,0 +1,38 @@
+<nav #navBar class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/images/freshcart-logo.svg" class="img-fluid">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <div *ngIf="isLogin" class="d-flex">
+          <a class="nav-link" routerLink="home" routerLinkActive="rounded-pill bg-main text-white">Home</a>
+          <a class="nav-link" routerLink="cart" routerLinkActive="rounded-pill bg-main text-white">Cart</a>
+          <a class="nav-link" routerLink="wishlist" routerLinkActive="rounded-pill bg-main text-white">Wish List</a>
+          <a class="nav-link" routerLink="products" routerLinkActive="rounded-pill bg-main text-white">Products</a>
+          <a class="nav-link" routerLink="categories" routerLinkActive="rounded-pill bg-main text-white">Categories</a>
+          <a class="nav-link" routerLink="brands" routerLinkActive="rounded-pill bg-main text-white">Brands</a>
+        </div>
+      </div>
+      <div class="d-flex gap-3 align-items-center ">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-behance"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i routerLink="cart" class="fa-solid fa-cart-shopping text-main cursor-pointer position-relative">
+          <span class="text-success position-absolute start-100 bottom-100">{{cartsNumber}}</span>
+        </i>
+        <i routerLink="wishlist" class="fa-solid fa-heart text-danger cursor-pointer position-relative">
+          <span class="text-danger position-absolute start-100 bottom-100">{{wishNumber}}</span>
+        </i>
+        <a *ngIf="!isLogin" class="nav-link" routerLink="login" routerLinkActive="rounded-pill bg-main text-white">Login</a>
+        <a *ngIf="!isLogin" class="nav-link" routerLink="register" routerLinkActive="rounded-pill bg-main text-white">Register</a>
+        <a *ngIf="isLogin" (click)="logout()" class="nav-link cursor-pointer"  routerLinkActive="rounded-pill bg-main text-white">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>

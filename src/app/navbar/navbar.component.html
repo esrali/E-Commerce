@@ -30,8 +30,8 @@
         <i routerLink="wishlist" *ngIf="isLogin" class="fa-solid fa-heart text-danger cursor-pointer position-relative">
           <span class="text-danger position-absolute start-100 bottom-100">{{wishNumber}}</span>
         </i>
-        <a *ngIf="!isLogin" class="nav-link" routerLink="login" routerLinkActive="rounded-pill bg-main text-white">Login</a>
-        <a *ngIf="!isLogin" class="nav-link" routerLink="register" routerLinkActive="rounded-pill bg-main text-white">Register</a>
+        <a *ngIf="!isLogin" class="nav-link" routerLink="login" routerLinkActive="rounded-pill bg-main text-white p-1">Login</a>
+        <a *ngIf="!isLogin" class="nav-link" routerLink="register" routerLinkActive="rounded-pill bg-main text-white p-1">Register</a>
         <a *ngIf="isLogin" (click)="logout()" class="nav-link cursor-pointer"  routerLinkActive="rounded-pill bg-main text-white">Logout</a>
       </div>
     </div>

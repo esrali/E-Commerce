@@ -17,6 +17,8 @@ newPassFlag:boolean=false;
 isLoading:boolean=false;
 complete:boolean=false;
 errMessage !: string;
+inputType: string = 'password';
+newInputType: string = 'password';
 
 loginForm:FormGroup=new FormGroup({
   email: new FormControl(null,[Validators.email,Validators.required]),
@@ -129,5 +131,14 @@ setNewPassMethod(){
   }
 
   )
+}
+
+togglePasswordVisibility(input: HTMLInputElement) {
+  input.type = (input.type === 'password') ? 'text' : 'password';
+  this.inputType = (this.inputType === 'password') ? 'text' : 'password';
+}
+toggleNewPasswordVisibility(input: HTMLInputElement) {
+  input.type = (input.type === 'password') ? 'text' : 'password';
+  this.newInputType = (this.inputType === 'password') ? 'text' : 'password';
 }
 }

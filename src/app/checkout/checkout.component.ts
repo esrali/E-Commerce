@@ -12,9 +12,9 @@ export class CheckoutComponent implements OnInit{
   constructor(private _FormBuilder:FormBuilder,private _ActivatedRoute:ActivatedRoute,private _CartService:CartService){}
 
   checkOut:FormGroup=this._FormBuilder.group({
-    details:[null],
+    details:[null,[Validators.required]],
     phone:[null,[Validators.required,Validators.pattern(/^(01)[0125][0-9]{8}$/)]],
-    city:[null]
+    city:[null,[Validators.required]]
   })
   cartId:any=''
   ngOnInit(): void {

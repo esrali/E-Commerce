@@ -28,7 +28,10 @@
 
     </div>
   </div>
-  <button [routerLink]="['/checkout',cartDetails._id]" class="btn bg-main text-white d-block mx-auto">Online Payment <img src="./assets/images/Visa-Logo-2006-2014.png" class="img-fluid " width="30px"></button>
+  <div class="d-flex justify-content-center">
+    <button [routerLink]="['/checkout',cartDetails._id]" class="btn bg-main text-white me-2 ">Online Payment <img src="./assets/images/Visa-Logo-2006-2014.png" class="img-fluid " width="30px"></button>
+    <button [routerLink]="['/cashDetails',cartDetails._id]" class="btn bg-main text-white">cash Payment </button>
+  </div>
 </section>
 
 <ng-template #msg>

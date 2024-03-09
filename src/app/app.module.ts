@@ -33,6 +33,9 @@ import { HeaderInterceptor } from './header.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './loading.interceptor';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { CashdetailsComponent } from './cashdetails/cashdetails.component';
+import { OllorderComponent } from './ollorder/ollorder.component';
+import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     DetailsComponent,
     SearchPipe,
     CheckoutComponent,
-    WishlistComponent
+    WishlistComponent,
+    CashdetailsComponent,
+    OllorderComponent,
+    CatDetailsComponent
   ],
   imports: [
     BrowserModule,

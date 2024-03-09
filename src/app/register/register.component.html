@@ -20,6 +20,37 @@
       </div>
     </div>
     <div class="mb-3">
+      <label for="">password:</label>
+      <div class="eyePass position-relative">
+          <input formControlName="password" type="password" #passwordInput class="form-control " >
+          <span class="btn my-0 py-0 position-absolute" (click)="togglePasswordVisibility(passwordInput)">
+              <i class="fa-solid fa-eye text-dark position-absolute "  *ngIf="inputType == 'password'" id="openeye"></i>
+             <i class="fa-solid fa-eye-slash text-dark position-absolute "  *ngIf="inputType === 'text'"   id="closeeye"></i>
+          </span>
+            <div class="alert mt-0 pt-0 alert-danger" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+              <p *ngIf="registerForm.get('password')?.errors?.['required']">password is required</p>
+              <p *ngIf="registerForm.get('password')?.errors?.['pattern']">password should be start by cabital alfabit & at less 6 character</p>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="mb-3">
+      <label for="">rePassword</label>
+      <div class="eyePass position-relative">
+      <input formControlName="rePassword" type="password"  #confirmPasswordInput type="password" class="form-control">
+      <span class="btn my-0 py-0 position-absolute"  (click)="togglerePasswordVisibility(confirmPasswordInput)">
+          <i class="fa-solid fa-eye text-dark position-absolute "  *ngIf="inputreType === 'password'" id="openeye"></i>
+         <i class="fa-solid fa-eye-slash text-dark position-absolute "  *ngIf="inputreType === 'text'"   id="closeeye"></i>
+      </span>
+      <div class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
+          <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">rePassword is required</p>
+          <p *ngIf="registerForm.get('rePassword')?.errors?.['pattern']">rePassword should be start by cabital alfabit & at less 6 character</p>
+          <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')">password Not Equal Repassword </p>
+      </div>
+  </div>
+  </div>
+    <!-- <div class="mb-3">
       <label>password:</label>
       <input class="form-control" formControlName="password" type="password">
       <div class="alert alert-danger" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
@@ -33,11 +64,12 @@
       <div class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
         <p *ngIf="registerForm.get('rePassword')?.errors?.['required']">rePassword is required</p>
         <p *ngIf="registerForm.get('rePassword')?.errors?.['pattern']">first char must be capital & min char is 7</p>
+        <p *ngIf="registerForm.get('rePassword')?.getError('mismatch')">password Not Equal Repassword </p>
       </div>
-    </div>
+    </div> -->
     <div class="mb-3">
       <label>phone:</label>
-      <input class="form-control" formControlName="phone">
+      <input class="form-control" formControlName="phone" type="tel">
       <div class="alert alert-danger" *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
         <p *ngIf="registerForm.get('phone')?.errors?.['required']">phone is required</p>
         <p *ngIf="registerForm.get('phone')?.errors?.['pattern']">please enter valid phone</p>

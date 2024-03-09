@@ -1,0 +1,21 @@
+<section class="mx-auto bg-main-light p-3 mb-3 w-100 rounded shadow" *ngIf="allOrders;else msg">
+  <div class="d-flex justify-content-center">
+    <h1 class="h2 text-main fw-bolder">All orders</h1>
+  </div>
+   <div class="row border-bottom py-2 justify-content-center" *ngFor="let item of allOrders">
+    <h3 class="fw-bolder">
+      total price: <span class="text-main">{{item.totalOrderPrice}}</span>
+    </h3>
+      <div class="col-md-3 m-2 " *ngFor="let i of item.cartItems" >
+          <img class="w-100 rounded-1" [src]="i.product.imageCover" [alt]="i.product.title" >
+          <h3 class="h4 mt-3 text-center">{{i.product.title.split(' ').slice(0,2).join(' ')}}</h3>
+          <p class="text-main text-center h4 small mb-0"> price :{{i.price}}  EGP</p>
+      </div>
+
+    </div>
+</section>
+
+
+<ng-template #msg >
+  <h2 class="text-center"> you haven't ordered yet....</h2>
+</ng-template>

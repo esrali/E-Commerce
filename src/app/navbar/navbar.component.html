@@ -15,18 +15,19 @@
           <a class="nav-link" routerLink="products" routerLinkActive="rounded-pill bg-main text-white">Products</a>
           <a class="nav-link" routerLink="categories" routerLinkActive="rounded-pill bg-main text-white">Categories</a>
           <a class="nav-link" routerLink="brands" routerLinkActive="rounded-pill bg-main text-white">Brands</a>
+          <a class="nav-link" routerLink="allOrder" routerLinkActive="rounded-pill bg-main text-white">All Order</a>
         </div>
       </div>
       <div class="d-flex gap-3 align-items-center ">
-        <i class="fa-brands fa-facebook fa-3x"></i>
+        <i class="fa-brands fa-facebook "></i>
         <i class="fa-brands fa-youtube"></i>
         <i class="fa-brands fa-instagram"></i>
         <i class="fa-brands fa-behance"></i>
         <i class="fa-brands fa-linkedin"></i>
-        <i routerLink="cart" class="fa-solid fa-cart-shopping text-main cursor-pointer position-relative">
+        <i routerLink="cart" *ngIf="isLogin" class="fa-solid fa-cart-shopping text-main cursor-pointer position-relative">
           <span class="text-success position-absolute start-100 bottom-100">{{cartsNumber}}</span>
         </i>
-        <i routerLink="wishlist" class="fa-solid fa-heart text-danger cursor-pointer position-relative">
+        <i routerLink="wishlist" *ngIf="isLogin" class="fa-solid fa-heart text-danger cursor-pointer position-relative">
           <span class="text-danger position-absolute start-100 bottom-100">{{wishNumber}}</span>
         </i>
         <a *ngIf="!isLogin" class="nav-link" routerLink="login" routerLinkActive="rounded-pill bg-main text-white">Login</a>

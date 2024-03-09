@@ -33,7 +33,7 @@ export class CartService {
     return this._HttpClient.delete(`${this.BaseUrl}/api/v1/cart`)
   }
 
-  //payment
+  //online payment
   checkout(cId:string,userData:object):Observable<any>
   {
     return this._HttpClient.post(`${this.BaseUrl}/api/v1/orders/checkout-session/${cId}?url=http://localhost:4200`,
@@ -42,3 +42,5 @@ export class CartService {
     }
       )
   }}
+
+

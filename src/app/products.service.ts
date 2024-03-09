@@ -21,7 +21,7 @@ export class ProductsService {
   getCategoryApi():Observable<any>{
     return this._HttpClient.get(`${this.BaseUrl}/api/v1/categories`)
   }
-  getSpacificCategory(catId:string):Observable<any>{
+  getSpacificCategory(catId:string|null):Observable<any>{
     return this._HttpClient.get(`${this.BaseUrl}/api/v1/categories/${catId}`)
   }
 

@@ -17,6 +17,7 @@ export class CartComponent implements OnInit {
     this._CartService.getUserCart().subscribe({
       next:(res)=>{
         this.cartDetails=res.data;
+        console.log(res);
       }
     })
 

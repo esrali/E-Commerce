@@ -20,6 +20,7 @@ interface redisterInterface
 export class AuthService {
   userData:BehaviorSubject<any>=new BehaviorSubject(null);
   BaseUrl:string='https://ecommerce.routemisr.com';
+  userId:string=""
 
   constructor(private _HttpClient:HttpClient,private _Router:Router) {
     if(localStorage.getItem("currentPage"))
@@ -50,6 +51,7 @@ export class AuthService {
     {
       this.userData.next(localStorage.getItem("userToken"));
       this.userData.next(jwtDecode(this.userData.getValue()));
+      this.userId=this.userData.getValue().id;
     }
     else{
       this.userData.next(null);

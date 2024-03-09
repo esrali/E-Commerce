@@ -12,6 +12,9 @@ import { authGuard } from './auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { CashdetailsComponent } from './cashdetails/cashdetails.component';
+import { OllorderComponent } from './ollorder/ollorder.component';
+import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full",title:"home"},
@@ -21,8 +24,11 @@ const routes: Routes = [
   {path:"details/:id",canActivate:[authGuard],component:DetailsComponent,title:"details"},
   {path:"brands",canActivate:[authGuard], component:BrandsComponent,title:"brands"},
   {path:"cart",canActivate:[authGuard],component:CartComponent,title:"cart"},
+  {path:"catDetails/:id",canActivate:[authGuard],component:CatDetailsComponent,title:"catDetails"},
   {path:"wishlist",canActivate:[authGuard],component:WishlistComponent,title:"wishlist"},
+  {path:"allOrder",canActivate:[authGuard],component:OllorderComponent,title:"allOrder"},
   {path:"checkout/:id",canActivate:[authGuard],component:CheckoutComponent,title:"checkout"},
+  {path:"cashDetails/:id",canActivate:[authGuard],component:CashdetailsComponent,title:"cashDetails"},
   {path:"products",canActivate:[authGuard],component:ProductsComponent,title:"products"},
   {path:"categories",canActivate:[authGuard],component:CategoriesComponent,title:"categories"},
   {path:"**",component:NotfoundComponent,title:"not fount page"}
